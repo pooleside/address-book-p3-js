@@ -1,7 +1,7 @@
 function Contact(firstName,lastName){
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.addresses = [];
+  this.firstName = firstName
+  this.lastName = lastName
+  this.addresses = []
 }
 
 Contact.prototype.fullName = function() {
@@ -18,6 +18,14 @@ Address.prototype.fullAddress = function() {
   return this.street + ", " + this.city + ", " + this.state;
 }
 
+function resetFields(){
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input.new-street").val("");
+  $("input.new-city").val("");
+  $("input.new-state").val("");
+  $("div.new-address").not(':first').remove();
+}
 
 $(document).ready(function() {
   $("#add-address").click(function() {
@@ -71,10 +79,6 @@ $("form#new-contact").submit(function(event) {
       });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+    resetFields();
   });
 });
